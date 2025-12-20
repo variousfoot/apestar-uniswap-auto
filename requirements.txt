@@ -1,0 +1,11 @@
+# Uniswap V3 Concentrated Liquidity Bot
+# Python 3.10+ required
+
+web3==6.15.1
+eth-account==0.10.0
+python-dotenv==1.0.0
+requests==2.31.0
+schedule==1.2.1
+rich==13.7.0
+click==8.1.7
+
