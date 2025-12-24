@@ -1,17 +1,17 @@
-# 🦍 APESTAR UNISWAP AUTO
+# 🚀 FEEDOM UNISWAP AUTO
 
 ```
- █████╗ ██████╗ ███████╗███████╗████████╗ █████╗ ██████╗ 
-██╔══██╗██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗██╔══██╗
-███████║██████╔╝█████╗  ███████╗   ██║   ███████║██████╔╝
-██╔══██║██╔═══╝ ██╔══╝  ╚════██║   ██║   ██╔══██║██╔══██╗
-██║  ██║██║     ███████╗███████║   ██║   ██║  ██║██║  ██║
-╚═╝  ╚═╝╚═╝     ╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
+███████╗███████╗███████╗██████╗  ██████╗ ███╗   ███╗
+██╔════╝██╔════╝██╔════╝██╔══██╗██╔═══██╗████╗ ████║
+█████╗  █████╗  █████╗  ██║  ██║██║   ██║██╔████╔██║
+██╔══╝  ██╔══╝  ██╔══╝  ██║  ██║██║   ██║██║╚██╔╝██║
+██║     ███████╗███████╗██████╔╝╚██████╔╝██║ ╚═╝ ██║
+╚═╝     ╚══════╝╚══════╝╚═════╝  ╚═════╝ ╚═╝     ╚═╝
                     UNISWAP AUTO
         Automated Concentrated Liquidity on Arbitrum
 ```
 
-An open-source bot by **Apestar** for automated concentrated liquidity provision on Uniswap V3 ETH/USDC pool on Arbitrum.
+An open-source bot by **[FEEDOM](https://feedom.tech)** for automated concentrated liquidity provision on Uniswap V3 ETH/USDC pool on Arbitrum.
 
 ## ✨ Features
 
@@ -21,7 +21,7 @@ An open-source bot by **Apestar** for automated concentrated liquidity provision
 - 📊 **Position Monitoring**: Real-time status display of pool and positions
 - 🔧 **Foundry Integration**: Uses `cast` for quick on-chain queries
 
-## 🦍 Pool Information
+## 🚀 Pool Information
 
 - **Network**: Arbitrum One
 - **Pool Address**: `0xC6962004f452bE9203591991D15f6b388e09E8D0`
@@ -38,8 +38,8 @@ An open-source bot by **Apestar** for automated concentrated liquidity provision
 
 1. **Clone the repository**:
 ```bash
-git clone https://github.com/variousfoot/apestar-uniswap-auto.git
-cd apestar-uniswap-auto
+git clone https://feedom.tech/feedom-uniswap-auto.git
+cd feedom-uniswap-auto
 ```
 
 2. **Install Python dependencies**:
@@ -77,31 +77,31 @@ REBALANCE_THRESHOLD_PERCENT=80    # Rebalance when 80% through range
 SLIPPAGE_TOLERANCE_PERCENT=0.5    # Max slippage for transactions
 ```
 
-## 🦍 Usage
+## 🚀 Usage
 
 ### CLI Commands
 
 ```bash
 # Show current status
-python apestar.py status
+python feedom.py status
 
 # Create a new position
-python apestar.py create --eth 0.1 --usdc 300
+python feedom.py create --eth 0.1 --usdc 300
 
 # List all positions
-python apestar.py positions
+python feedom.py positions
 
 # Collect fees from active position
-python apestar.py collect
+python feedom.py collect
 
 # Rebalance position
-python apestar.py rebalance
+python feedom.py rebalance
 
 # Close a position
-python apestar.py close --token-id 12345
+python feedom.py close --token-id 12345
 
 # Run the bot continuously
-python apestar.py run
+python feedom.py run
 ```
 
 ### Cast Scripts
@@ -151,9 +151,9 @@ Example for tick range ±300 (at spacing 10 = ±3000 ticks):
 ## 📁 Architecture
 
 ```
-apestar-uniswap-auto/
+feedom-uniswap-auto/
 ├── src/
-│   ├── __init__.py       # Apestar package info
+│   ├── __init__.py       # FEEDOM package info
 │   ├── config.py         # Configuration management
 │   ├── utils.py          # Uniswap V3 math utilities
 │   ├── pool.py           # Pool interaction
@@ -169,7 +169,7 @@ apestar-uniswap-auto/
 │   ├── get_price.sh
 │   ├── check_balance.sh
 │   └── calculate_ticks.sh
-├── apestar.py            # Entry point
+├── feedom.py             # Entry point
 ├── requirements.txt
 ├── env.example
 └── README.md
@@ -195,6 +195,7 @@ MIT License - see LICENSE file for details.
 
 ## 🔗 Links
 
+- [FEEDOM](https://feedom.tech)
 - [Uniswap V3 Docs](https://docs.uniswap.org/)
 - [Arbitrum](https://arbitrum.io/)
 - [Pool on Arbiscan](https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0)
@@ -203,5 +204,5 @@ MIT License - see LICENSE file for details.
 ---
 
 <p align="center">
-  <b>🦍 Powered by Apestar 🦍</b>
+  <b>🚀 Powered by FEEDOM | <a href="https://feedom.tech">feedom.tech</a> 🚀</b>
 </p>

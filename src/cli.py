@@ -1,5 +1,5 @@
 """
-Apestar Uniswap Auto - CLI Interface
+FEEDOM - Uniswap Auto CLI Interface
 """
 
 import click
@@ -23,9 +23,10 @@ def get_bot() -> LiquidityBot:
 @click.group()
 def cli():
     """
-    🦍 APESTAR UNISWAP AUTO 🦍
+    🚀 FEEDOM UNISWAP AUTO 🚀
     
     Automated concentrated liquidity provision on Uniswap V3
+    https://feedom.tech
     """
     pass
 
@@ -62,13 +63,13 @@ def create(eth: float, usdc: float, tick_range: int):
             f"  WETH: {format_eth(amount0)}\n"
             f"  USDC: {format_usdc(amount1)}\n"
             f"  Tick Range: ±{bot.config.tick_range}",
-            title="🦍 Create Position",
+            title="🚀 Create Position",
             border_style="cyan"
         ))
         
         if click.confirm('Proceed?'):
             token_id = bot.create_position(amount0, amount1)
-            console.print(f"[green]🦍 Position created! Token ID: {token_id}[/green]")
+            console.print(f"[green]🚀 Position created! Token ID: {token_id}[/green]")
         else:
             console.print("[yellow]Cancelled[/yellow]")
             
@@ -87,7 +88,7 @@ def rebalance():
             console.print("[yellow]No active position to rebalance[/yellow]")
             return
         
-        if click.confirm('🦍 Rebalance position?'):
+        if click.confirm('🚀 Rebalance position?'):
             bot.rebalance()
         else:
             console.print("[yellow]Cancelled[/yellow]")
@@ -120,13 +121,13 @@ def close(token_id: int):
             f"Closing position #{token_id}:\n"
             f"  Liquidity: {position.liquidity:,}\n"
             f"  Pending Fees: {format_eth(position.tokens_owed_0)} / {format_usdc(position.tokens_owed_1)}",
-            title="🦍 Close Position",
+            title="🚀 Close Position",
             border_style="cyan"
         ))
         
         if click.confirm('Close this position?'):
             result = bot.pm.close_position(token_id)
-            console.print(f"[green]🦍 Position closed![/green]")
+            console.print(f"[green]🚀 Position closed![/green]")
             print_footer()
         else:
             console.print("[yellow]Cancelled[/yellow]")
@@ -142,7 +143,7 @@ def run():
         bot = get_bot()
         bot.run()
     except KeyboardInterrupt:
-        console.print("\n[yellow]🦍 Apestar stopped by user[/yellow]")
+        console.print("\n[yellow]🚀 FEEDOM stopped by user[/yellow]")
         print_footer()
     except Exception as e:
         console.print(f"[red]Error: {e}[/red]")
@@ -183,7 +184,7 @@ def positions():
                 f"Liquidity: {pos.liquidity:,}\n"
                 f"In Range: {'[green]Yes[/green]' if in_range else '[red]No[/red]'}\n"
                 f"Uncollected: {format_eth(pos.tokens_owed_0)} / {format_usdc(pos.tokens_owed_1)}",
-                title=f"🦍 Position #{token_id}",
+                title=f"🚀 Position #{token_id}",
                 border_style="cyan"
             ))
         

@@ -1,5 +1,5 @@
 """
-Apestar Uniswap Auto - Main Bot Engine
+FEEDOM - Uniswap Auto Bot Engine
 """
 
 import time
@@ -28,31 +28,32 @@ from .utils import (
 
 console = Console()
 
-# Apestar ASCII Art Logo
-APESTAR_LOGO = """
+# FEEDOM ASCII Art Logo
+FEEDOM_LOGO = """
 [bold cyan]
-    ╔═══════════════════════════════════════════════════════════════╗
-    ║  █████╗ ██████╗ ███████╗███████╗████████╗ █████╗ ██████╗      ║
-    ║ ██╔══██╗██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗██╔══██╗     ║
-    ║ ███████║██████╔╝█████╗  ███████╗   ██║   ███████║██████╔╝     ║
-    ║ ██╔══██║██╔═══╝ ██╔══╝  ╚════██║   ██║   ██╔══██║██╔══██╗     ║
-    ║ ██║  ██║██║     ███████╗███████║   ██║   ██║  ██║██║  ██║     ║
-    ║ ╚═╝  ╚═╝╚═╝     ╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝     ║
-    ║                                                               ║
-    ║              [bold yellow]🦍 UNISWAP AUTO 🦍[/bold yellow][bold cyan]                            ║
-    ║      Automated Concentrated Liquidity on Arbitrum             ║
-    ╚═══════════════════════════════════════════════════════════════╝
+    ╔════════════════════════════════════════════════════════════════════╗
+    ║       ███████╗███████╗███████╗██████╗  ██████╗ ███╗   ███╗         ║
+    ║       ██╔════╝██╔════╝██╔════╝██╔══██╗██╔═══██╗████╗ ████║         ║
+    ║       █████╗  █████╗  █████╗  ██║  ██║██║   ██║██╔████╔██║         ║
+    ║       ██╔══╝  ██╔══╝  ██╔══╝  ██║  ██║██║   ██║██║╚██╔╝██║         ║
+    ║       ██║     ███████╗███████╗██████╔╝╚██████╔╝██║ ╚═╝ ██║         ║
+    ║       ╚═╝     ╚══════╝╚══════╝╚═════╝  ╚═════╝ ╚═╝     ╚═╝         ║
+    ║                                                                    ║
+    ║                    [bold yellow]🚀 UNISWAP AUTO 🚀[/bold yellow][bold cyan]                          ║
+    ║          Automated Concentrated Liquidity on Arbitrum              ║
+    ║                       [bold magenta]feedom.tech[/bold magenta][bold cyan]                               ║
+    ╚════════════════════════════════════════════════════════════════════╝
 [/bold cyan]"""
 
 
 def print_logo():
-    """Print the Apestar logo"""
-    console.print(APESTAR_LOGO)
+    """Print the FEEDOM logo"""
+    console.print(FEEDOM_LOGO)
 
 
 def print_footer():
-    """Print Apestar footer"""
-    console.print("[dim]🦍 Powered by Apestar[/dim]")
+    """Print FEEDOM footer"""
+    console.print("[dim]🚀 Powered by FEEDOM | feedom.tech[/dim]")
 
 
 @dataclass
@@ -67,7 +68,7 @@ class BotState:
 
 class LiquidityBot:
     """
-    Apestar Uniswap Auto - Automated Concentrated Liquidity Bot
+    FEEDOM Uniswap Auto - Automated Concentrated Liquidity Bot
     
     Strategy:
     - Maintains a position centered around current price
@@ -134,7 +135,7 @@ class LiquidityBot:
         pool_state = self.get_pool_state()
         
         # Pool info table
-        pool_table = Table(title="🦍 Pool Status", show_header=False)
+        pool_table = Table(title="🚀 Pool Status", show_header=False)
         pool_table.add_column("Property", style="cyan")
         pool_table.add_column("Value", style="green")
         
@@ -150,7 +151,7 @@ class LiquidityBot:
         # Position info
         position = self.get_active_position()
         if position:
-            pos_table = Table(title="🦍 Active Position", show_header=False)
+            pos_table = Table(title="🚀 Active Position", show_header=False)
             pos_table.add_column("Property", style="cyan")
             pos_table.add_column("Value", style="green")
             
@@ -174,7 +175,7 @@ class LiquidityBot:
         usdc_balance = self.pool.get_token_balance(self.config.usdc_address, self.account.address)
         eth_balance = self.w3.eth.get_balance(self.account.address)
         
-        balance_table = Table(title="🦍 Wallet Balances", show_header=False)
+        balance_table = Table(title="🚀 Wallet Balances", show_header=False)
         balance_table.add_column("Token", style="cyan")
         balance_table.add_column("Balance", style="green")
         
@@ -278,7 +279,7 @@ class LiquidityBot:
             f"  Price: ${tick_to_price(tick_lower):,.2f} → ${tick_to_price(tick_upper):,.2f}\n"
             f"  WETH: {format_eth(amount0)}\n"
             f"  USDC: {format_usdc(amount1)}",
-            title="🦍 New Position",
+            title="🚀 New Position",
             border_style="cyan"
         ))
         
@@ -320,7 +321,7 @@ class LiquidityBot:
             console.print("[yellow]No position to rebalance[/yellow]")
             return
         
-        console.print("[yellow]🦍 Starting rebalance...[/yellow]")
+        console.print("[yellow]🚀 Starting rebalance...[/yellow]")
         
         position = self.get_active_position()
         
@@ -340,7 +341,7 @@ class LiquidityBot:
         if weth_balance > 0 or usdc_balance > 0:
             self.create_position(weth_balance, usdc_balance)
             self.state.rebalance_count += 1
-            console.print(f"[green]🦍 Rebalance complete! (Total: {self.state.rebalance_count})[/green]")
+            console.print(f"[green]🚀 Rebalance complete! (Total: {self.state.rebalance_count})[/green]")
         else:
             console.print("[red]No tokens available for new position[/red]")
             self.state.active_position_id = None
@@ -356,7 +357,7 @@ class LiquidityBot:
             console.print("[dim]No fees to collect[/dim]")
             return
         
-        console.print(f"🦍 Collecting {format_eth(position.tokens_owed_0)} WETH, {format_usdc(position.tokens_owed_1)} USDC")
+        console.print(f"🚀 Collecting {format_eth(position.tokens_owed_0)} WETH, {format_usdc(position.tokens_owed_1)} USDC")
         
         result = self.pm.collect_fees(self.state.active_position_id)
         
@@ -367,7 +368,7 @@ class LiquidityBot:
     def run_once(self):
         """Run one iteration of the bot"""
         console.print("\n" + "=" * 60)
-        console.print(f"[bold cyan]🦍 Apestar Check @ {time.strftime('%Y-%m-%d %H:%M:%S')}[/bold cyan]")
+        console.print(f"[bold cyan]🚀 FEEDOM Check @ {time.strftime('%Y-%m-%d %H:%M:%S')}[/bold cyan]")
         console.print("=" * 60)
         
         self.display_status()
@@ -377,7 +378,7 @@ class LiquidityBot:
             console.print("[yellow]Position out of optimal range - rebalancing...[/yellow]")
             self.rebalance()
         else:
-            console.print("[green]🦍 Position in optimal range[/green]")
+            console.print("[green]🚀 Position in optimal range[/green]")
         
         self.state.last_check_time = time.time()
     
@@ -391,7 +392,7 @@ class LiquidityBot:
             f"Tick Range: ±{self.config.tick_range} spacing\n"
             f"Check Interval: {self.config.check_interval_seconds}s\n"
             f"Rebalance Threshold: {self.config.rebalance_threshold_percent}%",
-            title="🦍 [bold cyan]APESTAR UNISWAP AUTO[/bold cyan] 🦍",
+            title="🚀 [bold cyan]FEEDOM UNISWAP AUTO[/bold cyan] 🚀",
             border_style="cyan",
             subtitle="[dim]Automated Concentrated Liquidity[/dim]"
         ))
@@ -402,5 +403,5 @@ class LiquidityBot:
             except Exception as e:
                 console.print(f"[red]Error: {e}[/red]")
             
-            console.print(f"\n[dim]🦍 Sleeping {self.config.check_interval_seconds}s...[/dim]")
+            console.print(f"\n[dim]🚀 Sleeping {self.config.check_interval_seconds}s...[/dim]")
             time.sleep(self.config.check_interval_seconds)

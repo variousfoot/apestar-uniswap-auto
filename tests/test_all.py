@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Comprehensive Test Suite for Apestar Uniswap Auto
+Comprehensive Test Suite for FEEDOM Uniswap Auto
 Tests all bot functionalities with fuzz testing
 """
 
@@ -77,9 +77,9 @@ def test_imports():
     
     @test("Import src.bot")
     def _():
-        from src.bot import LiquidityBot, BotState, print_logo, APESTAR_LOGO
-        assert "UNISWAP AUTO" in APESTAR_LOGO
-        assert "🦍" in APESTAR_LOGO
+        from src.bot import LiquidityBot, BotState, print_logo, FEEDOM_LOGO
+        assert "UNISWAP AUTO" in FEEDOM_LOGO
+        assert "🚀" in FEEDOM_LOGO
     _()
     
     @test("Import src.cli")
@@ -475,7 +475,7 @@ def test_cli():
     def _():
         result = runner.invoke(cli, ['--help'])
         assert result.exit_code == 0
-        assert "APESTAR" in result.output
+        assert "FEEDOM" in result.output
     _()
     
     @test("CLI status --help")
@@ -506,9 +506,9 @@ def main():
     global passed, failed, errors
     
     console.print(Panel(
-        "[bold]Apestar Uniswap Auto - Comprehensive Test Suite[/bold]\n\n"
+        "[bold]FEEDOM Uniswap Auto - Comprehensive Test Suite[/bold]\n\n"
         "Testing all bot functionalities with fuzz testing...",
-        title="🦍 TEST SUITE 🦍",
+        title="🚀 TEST SUITE 🚀",
         border_style="cyan"
     ))
     
@@ -541,7 +541,7 @@ def main():
     if failed == 0:
         console.print(Panel(
             f"[bold green]All {passed} tests passed![/bold green]\n\n"
-            "🦍 Apestar Uniswap Auto is ready to use!",
+            "🚀 FEEDOM Uniswap Auto is ready to use!",
             title="✅ SUCCESS",
             border_style="green"
         ))

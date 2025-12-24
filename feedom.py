@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 ███████╗███████╗███████╗██████╗  ██████╗ ███╗   ███╗
 ██╔════╝██╔════╝██╔════╝██╔══██╗██╔═══██╗████╗ ████║
@@ -5,13 +6,20 @@
 ██╔══╝  ██╔══╝  ██╔══╝  ██║  ██║██║   ██║██║╚██╔╝██║
 ██║     ███████╗███████╗██████╔╝╚██████╔╝██║ ╚═╝ ██║
 ╚═╝     ╚══════╝╚══════╝╚═════╝  ╚═════╝ ╚═╝     ╚═╝
-                    UNISWAP AUTO
+
+                🚀 UNISWAP AUTO 🚀
     Automated Concentrated Liquidity on Arbitrum
-    
-    https://feedom.tech
+                  feedom.tech
+
+Usage:
+    python feedom.py status      - Show pool and position status
+    python feedom.py create      - Create a new position
+    python feedom.py run         - Run the bot continuously
+    python feedom.py --help      - Show all commands
 """
 
-__name__ = "FEEDOM Uniswap Auto"
-__version__ = "1.0.0"
-__author__ = "FEEDOM"
-__description__ = "Automated concentrated liquidity provision on Uniswap V3"
+from src.cli import cli
+
+if __name__ == '__main__':
+    cli()
+
